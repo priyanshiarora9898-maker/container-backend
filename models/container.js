@@ -30,7 +30,7 @@ async function fetch(params) {
     }
     const res = await pool.query(query, queryParams);
 
-    return res.rows[0];
+    return res.rows;
 
 }
 
