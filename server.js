@@ -6,9 +6,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const { initializedb } = require('../backend/config/db/db.js');
-const errorHandler =require('../backend/middleware/errorHandler');
-const containerRoutes = require('../backend/routes/container');
+const { initializedb } = require('./config/db/db.js');
+const errorHandler =require('./middleware/errorHandler');
+const containerRoutes = require('./routes/container');
 
 console.log('DB_USER:', process.env.DB_USER);
 console.log('DB_HOST:', process.env.DB_HOST);
