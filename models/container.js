@@ -17,16 +17,15 @@ async function fetch(params) {
         FROM container c
         LEFT JOIN vendor v ON c.vendor_id = v.id
         LEFT JOIN port p ON c.current_port_id = p.id
-        LEFT JOIN zone z ON c.current_zone_id = z.id
-        WHERE 
+        LEFT JOIN zone z ON c.current_zone_id = z.id 
     `;
     const queryParams = [];
     if (params.id) {
-        query+=` id = $1`; 
+        query+=`WHERE id = $1`; 
         queryParams.push(params.id);
     }
     else if (params.unique_number) {
-        query+=' unique_number = $1';
+        query+='WHERE unique_number = $1';
         queryParams.push(params.unique_number);
     }
     const res = await pool.query(query, queryParams);

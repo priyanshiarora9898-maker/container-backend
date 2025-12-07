@@ -3,11 +3,8 @@ const AppError = require('../utils/AppError');
 
 async function fetchContainerController (req, res, next) {
     try {
-        if (!req.query.unique_number) {
-            throw new AppError('unique number not present', 'CLIENT_ERROR');
-        }
         const container = await fetch({
-            unique_number: req.query.unique_number
+            unique_number: req.query && req.query.unique_number ? requestAnimationFrame.query.unique_number : ''
         });
         res.status(200).json({
             status: 'success',

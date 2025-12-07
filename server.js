@@ -1,4 +1,3 @@
-console.log('ENV PATH:', __dirname + '/../../.env');
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -9,9 +8,6 @@ app.use(express.json());
 const { initializedb } = require('./config/db/db.js');
 const errorHandler =require('./middleware/errorHandler');
 const containerRoutes = require('./routes/container');
-
-console.log('DB_USER:', process.env.DB_USER);
-console.log('DB_HOST:', process.env.DB_HOST);
 
 async function startServer() {
   try {
